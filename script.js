@@ -11,7 +11,7 @@ class Cliente{
     }
 }
 
-class Pessoa extends cliente{
+class Pessoa extends Cliente{
     constructor(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, historico, nome, cpf, email, telefone, dataDeNascimento){
         super(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, historico)
         this.nome = nome;
@@ -22,7 +22,7 @@ class Pessoa extends cliente{
     }
 }
 
-class Empresa extends cliente{
+class Empresa extends Cliente{
     constructor(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, historico, nomeFantasia, cnpj, email, telefone, dataDaFundacao){
         super(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, historico)
         this.nomeFantasia = nomeFantasia;
@@ -64,7 +64,7 @@ class Transacao{
         return "Depósito realizado com sucesso!"
     }
     static pagamentoSalario(contaOrigem, contaDestino, idPagamento, dataDoPagamento, valorDoSalario){
-        if(contaOrigem instanceof pessoa){
+        if(contaOrigem instanceof Pessoa){
             if(valorDoSalario>1000){
                 return "Seu limite máximo para este tipo de operação é de 1000, entre em contato com o banco!"
             }
