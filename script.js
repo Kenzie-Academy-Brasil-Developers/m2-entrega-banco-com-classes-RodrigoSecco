@@ -1,4 +1,4 @@
-class cliente{
+class Cliente{
     constructor(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo){
         this.idCliente = idCliente;
         this.tipoCliente = tipoCliente;
@@ -11,7 +11,7 @@ class cliente{
     }
 }
 
-class pessoa extends cliente{
+class Pessoa extends cliente{
     constructor(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, historico, nome, cpf, email, telefone, dataDeNascimento){
         super(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, historico)
         this.nome = nome;
@@ -22,7 +22,7 @@ class pessoa extends cliente{
     }
 }
 
-class empresa extends cliente{
+class Empresa extends cliente{
     constructor(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, historico, nomeFantasia, cnpj, email, telefone, dataDaFundacao){
         super(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, historico)
         this.nomeFantasia = nomeFantasia;
@@ -33,7 +33,7 @@ class empresa extends cliente{
     }
 }
 
-class transacao{
+class Transacao{
     static transferencia(contaOrigem, contaDestino, idTransacao, dataDeTransacao, valorDaTransferencia){
         if(contaOrigem.saldo>=valorDaTransferencia){
             contaOrigem.historico.push({
