@@ -12,8 +12,8 @@ class Cliente{
 }
 
 class Pessoa extends Cliente{
-    constructor(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, historico, nome, cpf, email, telefone, dataDeNascimento){
-        super(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, historico)
+    constructor(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, nome, cpf, email, telefone, dataDeNascimento){
+        super(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo)
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
@@ -23,8 +23,8 @@ class Pessoa extends Cliente{
 }
 
 class Empresa extends Cliente{
-    constructor(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, historico, nomeFantasia, cnpj, email, telefone, dataDaFundacao){
-        super(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, historico)
+    constructor(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, nomeFantasia, cnpj, email, telefone, dataDaFundacao){
+        super(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo)
         this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
         this.email = email;
