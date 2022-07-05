@@ -23,7 +23,7 @@ class Pessoa extends Cliente{
 }
 
 class Empresa extends Cliente{
-    constructor(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo, nomeFantasia, cnpj, email, telefone, dataDaFundacao){
+    constructor(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo,  nomeFantasia, cnpj, email, telefone, dataDaFundacao){
         super(idCliente, tipoCliente, dataCriacao, codBanco, agencia, conta, saldo)
         this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
@@ -36,6 +36,8 @@ class Empresa extends Cliente{
 class Transacao{
     static transferencia(contaOrigem, contaDestino, idTransacao, dataDeTransacao, valorDaTransferencia){
         if(contaOrigem.saldo>=valorDaTransferencia){
+            contaOrigem.saldo = contaOrigem.saldo - valorDaTransferencia
+            contaDestino.saldo = contaDestino.saldo + valorDaTransferencia
             contaOrigem.historico.push({
                 idTransacao: idTransacao,
                 dataDeTransacao: dataDeTransacao,
@@ -53,6 +55,7 @@ class Transacao{
             return "Saldo insuficiente para transferência!"
         }
     }
+
     static deposito(contaDestino, idDeposito, dataDoDeposito, valorDoDeposito){
         contaDestino.saldo = contaDestino.saldo + valorDoDeposito
         contaDestino.historico.push({
@@ -69,7 +72,7 @@ class Transacao{
                 return "Seu limite máximo para este tipo de operação é de 1000, entre em contato com o banco!"
             }
         }
-        if(this.saldo>=valorDoSalario){
+        if(contaOrigem.saldo>=valorDoSalario){
             contaOrigem.saldo = contaOrigem.saldo - valorDoSalario
             contaDestino.saldo = contaDestino.saldo + valorDoSalario
             contaOrigem.historico.push({
